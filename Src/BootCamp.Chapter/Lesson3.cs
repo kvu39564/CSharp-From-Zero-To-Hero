@@ -33,14 +33,14 @@ namespace BootCamp.Chapter
         }
 
         //Calculating BMI (weight comes in kg, height comes in meters),
-        static public float CaculateBmi(float weight, float height)
+        public static float CaculateBmi(float weight, float height)
         {
             return weight / (float) Math.Pow((height), 2);
         }
 
         //Prompt for input and converting it to int (print message for request, 
         //read console input and return converted input to int),
-        static public int PromptInt(string message)
+        public static int PromptInt(string message)
         {
             Console.Write(message);
             return int.Parse(Console.ReadLine());
@@ -48,7 +48,7 @@ namespace BootCamp.Chapter
 
         //Prompt for input and converting it to string (print message for request, 
         //read console input and return input),
-        static public string PromptString(string message)
+        public static string PromptString(string message)
         {
             Console.Write(message);
             return Console.ReadLine();
@@ -56,7 +56,7 @@ namespace BootCamp.Chapter
 
         //Prompt for input and converting it to float (print message for request, 
         //read console input and return converted input to float).
-        static public float PromptFloat(string message)
+        public static float PromptFloat(string message)
         {
             Console.Write(message);
             return float.Parse(Console.ReadLine());
