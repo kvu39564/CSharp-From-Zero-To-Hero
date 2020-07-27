@@ -24,7 +24,7 @@ namespace BootCamp.Chapter
             weight = PromptFloat("Enter your weight (kg): ");
             height = PromptFloat("Enter your height (m): ");
 
-            bmi = CaculateBmi(weight, height);
+            bmi = CalculateBmi(weight, height);
 
             Console.WriteLine("\n" + firstName + " " + lastName + " is " + age + " years old, " +
                               "his weight is " + weight + " kg " +
@@ -33,7 +33,7 @@ namespace BootCamp.Chapter
         }
 
         //Calculating BMI (weight comes in kg, height comes in meters),
-        public static float CaculateBmi(float weight, float height)
+        public static float CalculateBmi(float weight, float height)
         {
             if(weight <= 0 || height <= 0)
             {
@@ -52,13 +52,8 @@ namespace BootCamp.Chapter
                     {
                         Console.Write("equal or ");
                     }
-
-                    if (height <= 0)
-                    {
-                        Console.Write("less than zero, ");
-                    }
-
-                    Console.WriteLine($"but was {height}.");
+  
+                    Console.WriteLine($"less than zero, but was {height}.");
                 }
 
                 return -1;
