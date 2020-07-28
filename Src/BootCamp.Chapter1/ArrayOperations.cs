@@ -1,4 +1,6 @@
-﻿namespace BootCamp.Chapter1
+﻿using System;
+
+namespace BootCamp.Chapter1
 {
     public static class ArrayOperations
     {
@@ -10,6 +12,22 @@
         public static void Sort(int[] array)
         {
             // ToDo: implement.
+            int temp = 0;
+
+            if (array == null || array.Length == 0) return;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array.Length; j++)
+                {
+                    if(array[j] > array[i])
+                    {
+                        temp = array[i];
+                        array[i] = array[j];
+                        array[j] = temp;
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -20,6 +38,16 @@
         public static void Reverse(int[] array)
         {
             // ToDo: implement.
+            int temp = 0;
+
+            if (array == null || array.Length == 0) return;
+
+            for (int i = 0; i < (int) Math.Ceiling((float) (array.Length - 1) / 2); i++)
+            {
+                temp = array[i];
+                array[i] = array[(array.Length - 1) - i];
+                array[(array.Length - 1) - i] = temp;
+            }
         }
 
         /// <summary>
@@ -30,7 +58,16 @@
         public static int[] RemoveLast(int[] array)
         {
             // ToDo: implement.
-            return array;
+            if (array == null || array.Length == 0) return array;
+
+            var newArray = new int[array.Length - 1];
+
+            for (int i = 0; i < newArray.Length; i++)
+            {
+                newArray[i] = array[i];
+            }
+
+            return newArray;
         }
 
         /// <summary>
@@ -40,7 +77,16 @@
         public static int[] RemoveFirst(int[] array)
         {
             // ToDo: implement.
-            return array;
+            if (array == null || array.Length == 0) return array;
+
+            var newArray = new int[array.Length - 1];
+
+            for (int i = 0; i < newArray.Length; i++)
+            {
+                newArray[i] = array[i + 1];
+            }
+
+            return newArray;
         }
 
         /// <summary>
@@ -52,7 +98,17 @@
         public static int[] RemoveAt(int[] array, int index)
         {
             // ToDo: implement.
-            return array;
+            if (array == null || array.Length == 0) return array;
+            if (index < 0 || index >= array.Length) return array;
+
+            var newArray = new int[array.Length - 1];
+
+            for (int i = 0; i < newArray.Length; i++)
+            {
+                newArray[i] = (i >= index) ? array[i + 1] : array[i];
+            }
+
+            return newArray;
         }
 
         /// <summary>
@@ -64,7 +120,16 @@
         public static int[] InsertFirst(int[] array, int number)
         {
             // ToDo: implement.
-            return array;
+            if (array == null || array.Length == 0) return new int[] { number };
+
+            var newArray = new int[array.Length + 1];
+
+            for (int i = 0; i < newArray.Length; i++)
+            {
+                newArray[i] = (i == 0) ? number : array[i - 1];
+            }
+
+            return newArray;
         }
 
         /// <summary>
@@ -76,7 +141,16 @@
         public static int[] InsertLast(int[] array, int number)
         {
             // ToDo: implement.
-            return array;
+            if (array == null || array.Length == 0) return new int[] { number };
+
+            var newArray = new int[array.Length + 1];
+
+            for (int i = 0; i < newArray.Length; i++)
+            {
+                newArray[i] = (i == newArray.Length - 1) ? number : array[i];
+            }
+
+            return newArray;
         }
 
         /// <summary>
@@ -89,7 +163,27 @@
         public static int[] InsertAt(int[] array, int number, int index)
         {
             // ToDo: implement.
-            return array;
+            if(array == null) return new int[] { number };
+
+            if (array.Length == 0)
+            {
+                if (index < 0 || index > array.Length) return array;
+                else return new int[] { number };
+            }
+
+            var newArray = new int[array.Length + 1];
+
+            for (int i = 0; i < newArray.Length; i++)
+            {
+                if (i == index) {
+                    newArray[i] = number;
+                    continue;
+                }
+
+                newArray[i] = (i > index) ? array[i - 1] : array[i];
+            }
+
+            return newArray;
         }
     }
 }
